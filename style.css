@@ -76,9 +76,39 @@ section {
 
 /* Form Elements */
 label {
-    font-size: 1 rem;
+    font-size: 16 px;
     color: #333;
     display: block;
     margin-bottom: 5 px;
 }
 
+
+input[type="text"] {
+    width: calc (100% - 100px);
+    padding: 8 px;
+    margin: 10 px 0;
+    border: 1 px solid #ccc;
+    border-radius: 5 px;
+}
+
+button {
+    padding: 8 px 15 px;
+    font-size: 16 px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5 px;
+    cursor: pointer;
+}
+
+button: hover {
+    background: #45a049;
+}
+
+output {
+    display: block;
+    font-size: 18 px;
+    color: #4CAF50;
+    margin-top: 10 px;
+    font-weight: bold;
+}
