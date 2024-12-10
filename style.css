@@ -1,1 +1,84 @@
+/* General Reset */
+body, h1, h2, p, input, button, output {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+    padding: 20 px;
+}
+
+/* Header Styling */
+.header {
+    font-size: 40 px;
+    color: #4CAF50;
+    margin-bottom: 10 px;
+}
+
+.subtitle {
+    font-size: 24 px;
+    color: #555;
+    margin-bottom: 20 px;
+}
+
+/* Logo Styling */
+.logo {
+    border-radius: 50 %;
+    margin: 10 px auto;
+    display: block;
+    border: 2 px solid #ddd;
+}
+
+/* Image Container */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20 px;
+    margin: 20 px 0;
+}
+
+.image-item {
+    text-align: center;
+}
+
+.image-item img {
+    width: 100 px;
+    height: 100 px;
+    border-radius: 10 px;
+    border: 2 px solid #ddd;
+    margin-bottom: 10 px;
+}
+
+.image-item p {
+    font-size: 16 px;
+    color: #666;
+}
+
+/* Section Styling */
+section {
+    margin: 20 px 0;
+    padding: 20 px;
+    background: #fff;
+    border: 1 px solid #ddd;
+    border-radius: 8 px;
+    box-shadow: 0 2 px 5 px rgba(0, 0, 0, 0.1);
+    max-width: 500 px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Form Elements */
+label {
+    font-size: 1 rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5 px;
+}
 
