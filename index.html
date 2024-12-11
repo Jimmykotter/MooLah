@@ -10,6 +10,7 @@
     <h1 class="header">MooLah</h1>
     <h2 class="subtitle">Monthly Budget Calculator</h2>
 
+
     <img class="logo" src="./assets/Moolah.jpg" alt="MooLah Logo" width="200" height="200">
     <br>
     <div class="image-container">
@@ -19,6 +20,7 @@
         </div>
         <div class="image-item">
             <img src="./assets/Gold-Coin.jpg" alt="Expenses Image" width="200" height="200">
+
             <p>Expenses</p>
         </div>
     </div>
@@ -26,7 +28,10 @@
     <section class="earnings">
         <div class="earnings-entry">
             <label for="earnings">Enter Your Earnings:</label>
-            <input type="text" id="earnings" name="earnings" placeholder="Enter amount"><button>Submit</button>
+          
+
+            <input type="text" id="earnings" name="earnings" placeholder="Enter amount"><button id="earnings-button">Submit</button>
+
             <br>
             <output type="text" id="earnings-output" name="earnings-output" placeholder="Enter amount">
                 <br>
@@ -36,21 +41,18 @@
     <section class="expenses">
         <div class="expense-entry">
             <label for="expense">Enter Your Expenses:</label>
-            <input type="text" id="expenses" name="expenses" placeholder="Enter amount"><button>Submit</button>
+          
+            <input type="text" id="expenses" name="expenses" placeholder="Enter amount"><button id="expenses-button">Submit</button>
+
             <br>
             <output type="text" id="expenses-output" name="expense-output" placeholder="Enter amount">
         </div>
     </section>
-</body>
-</html>
+
+    <p id="remaining-balance">Remaining Balance: $0</p>
 
 
-
-
-
-
-
-
+<script src="script.js"></script>
 
 
 </body>
@@ -58,4 +60,3 @@
 
 
 </html>
-
