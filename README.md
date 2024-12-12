@@ -1,3 +1,6 @@
+#Description
+As current students in this working class society it is important that we learn to budget and use proper money management skills in order to survive day to day life. Building this app with pure motivation of uplifting our generation in a financial standpoint, we as a team believe not only will the app be beneficial but thrive.
+
 # MooLah
 Monthly Budget Calculator
 GIVEN an monthly budget calculator
