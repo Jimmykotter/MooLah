@@ -21,6 +21,29 @@ THEN I am able to add more data in order to better excecute budget goals
 WHEN I open my app my Css and Javascript will line up with my HTML and properly respond
 THEN my JavaScript DOM Manipulation and a Modal will be properly responsive
 
+HTML 
+inputs outputs
+class selection 
+section divide
+proper usage of head, body and footer framework
+
+CSS
+Body styling
+Logo Styling
+Proper usgae of syntax in order for responsive code
+
+JAVASCRIPT
+Understanding of the usage of the document window and querySelectors
+Responsive Localstorage
+Proper usage of EventListeners
+
+TEAMWORK
+Collaborative Preparation 
+Daily Goals Set and executed
+Communication
+Proper use of Agile Management 
+
+
 ## Credits
 
 N/A
