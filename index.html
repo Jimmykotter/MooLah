@@ -14,60 +14,47 @@
     <img class="logo" src="./assets/Moolah.jpg" alt="MooLah Logo" width="200" height="200">
     <br>
     
-    <!-- Created and add piggybank image for Earnings section -->
-    <div class="image-container">
-        <div class="image-item">
-            <img src="./assets/piggybank.jpg" alt="Earnings Image" width="200" height="200">
-            <p>Earnings</p>
+    <!-- Created and added piggybank and input/output for Earnings -->
+   <div class="main-container">
+        
+        <div class="sections-container">
+            <section class="earnings">
+                <div class="image-item">
+                    <img src="./assets/piggybank.jpg" alt="Earnings Image">
+                </div>
+                <div class="earnings-entry">
+                    <label for="earnings">Enter Your Earnings:</label>
+                    <input type="text" id="earnings" name="earnings" placeholder="Enter amount">
+                    <button id="earnings-button">Submit</button>
+                    <br>
+                    <output type="text" id="earnings-output" name="earnings-output" placeholder="Enter amount"></output>
+                </div>
+            </section>
+            
+    <!--Created and added Gold Coin image and input/output for Expenses -->
+            <section class="expenses">
+                <div class="image-item">
+                    <img src="./assets/Gold-Coin.jpg" alt="Expenses Image">
+                </div>
+                <div class="expense-entry">
+                    <label for="expense">Enter Your Expenses:</label>
+                    <input type="text" id="expenses" name="expenses" placeholder="Enter amount">
+                    <button id="expenses-button">Submit</button>
+                    <br>
+                    <output type="text" id="expenses-output" name="expense-output" placeholder="Enter amount"></output>
+                </div>
+            </section>
         </div>
-        <!-- Created and added gold coin image for Expenses-->
-        <div class="image-item">
-            <img src="./assets/Gold-Coin.jpg" alt="Expenses Image" width="200" height="200">
-
-            <p>Expenses</p>
-        </div>
-    </div>
-//Section marker for Earnings
-    <section class="earnings">
-        <div class="earnings-entry">
-            <label for="earnings">Enter Your Earnings:</label>
-          
-<!--Added button for Earnings input -->
-
-            <input type="text" id="earnings" name="earnings" placeholder="Enter amount"><button id="earnings-button">Submit</button>
-
-            <br>
-            <output type="text" id="earnings-output" name="earnings-output" placeholder="Enter amount">
-                <br>
-        </div>
-    </section>
-    
-<!--Added section marker for Expenses -->
-    <section class="expenses">
-        <div class="expense-entry">
-            <label for="expense">Enter Your Expenses:</label>
-          //Add button for Expenses input
-            <input type="text" id="expenses" name="expenses" placeholder="Enter amount"><button id="expenses-button">Submit</button>
-
-            <br>
-            <output type="text" id="expenses-output" name="expense-output" placeholder="Enter amount">
-        </div>
-    </section>
-    
+</div>
     <!-- Added section for Remaining Balance-->
 <p id="remaining-balance">Remaining Balance: $0</p>
     <br>
     <br>
     <br>
-
     <!-- Added Footer -->
-
     <footer id="footer">
         <p>&copy; 2024 MooLah</p>
     </footer>
-
 <script src="script.js"></script>
-
-
 </body>
 </html>
