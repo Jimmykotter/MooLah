@@ -1,38 +1,85 @@
-const earningsInput = document.querySelector("#earnings"); //input of earning value - Jimmy
-const earningsButton = document.querySelector("#earnings-button"); //the button that is clicked - Jimmy
-let incomeTotal = 0
-const ExpensesInput = document.querySelector("#expenses")
-const expensesButton = document.querySelector ("#expenses-button")
-let expenseTotal = 0
+// Select elements for earnings - Jimmy
+const earningsInput = document.querySelector("#earnings"); // Input field for earnings value - Jimmy
+const earningsButton = document.querySelector("#earnings-button"); // Button to submit earnings - Jimmy
+const earningsOutput = document.querySelector("#earnings-output"); // Output for total earnings -yasmine  
+let incomeTotal = 0; // Variable to store the total earnings -yasmine
 
+// Select elements for expenses - Jimmy
+const expensesInput = document.querySelector("#expenses"); // Input field for expenses value - Jimmy
+const expensesButton = document.querySelector("#expenses-button"); // Button to submit expenses - Jimmy
+const expensesOutput = document.querySelector("#expenses-output"); // Output for total expenses - yasmine
+let expenseTotal = 0; // Variable to store the total expenses -yasmine
+
+// Select element for displaying the remaining balance - Jimmy
 const remainingBalanceElement = document.querySelector("#remaining-balance"); // Element to display the remaining balance - Jimmy
- 
-//EARNINGS:
 
-//need to add an event listener for when the earning button is clicked - Jimmy
-earningsButton.addEventListener("click",function(event){
+// Modal elements
+const modal = document.querySelector("#modal"); // Modal container - yasmine 
+const openModalButton = document.querySelector("#open-modal-button"); // Button to open the modal -yasmine
+const closeModalButton = document.querySelector("#close-modal-button"); // Button to close the modal -yasmine
+const modalEarnings = document.querySelector("#modal-earnings"); // Modal display for earnings -yasmine 
+const modalExpenses = document.querySelector("#modal-expenses"); // Modal display for expenses -yasmine
+const modalBalance = document.querySelector("#modal-balance"); // Modal display for remaining balance -yasmine
+
+// EARNINGS:
+// Add an event listener for when the earnings button is clicked - Jimmy
+earningsButton.addEventListener("click", function (event) {
     event.preventDefault();
-    incomeTotal += parseFloat(earningsInput.value)
-console.log("income total = "+incomeTotal)
-updateRemainingBalance(); // Update the balance after modifying income - Jimmy
+    const earningsValue = parseFloat(earningsInput.value); // Parse input value to a float -yasmine
 
-})
+    if (!isNaN(earningsValue) && earningsValue >= 0) {
+        incomeTotal += earningsValue; // Add the earnings to the total -yasmine
+        earningsOutput.textContent = `Total Earnings: $${incomeTotal.toFixed(2)}`; // Update the earnings output -yasmine
+        earningsInput.value = ""; // Clear the input field after submission -yasmine 
+    } else {
+        alert("Please enter a valid positive number for earnings."); // Input validation -yasmine
+    }
 
-//EXPENSE:
+    updateRemainingBalance(); // Update the balance after modifying income - Jimmy
+});
 
-//need to add an event listener and consol log for when the expense button is clicked - Jimmy
-expensesButton.addEventListener("click",function(event){
+// EXPENSES:
+// Add an event listener for when the expenses button is clicked - Jimmy
+expensesButton.addEventListener("click", function (event) {
     event.preventDefault();
-    expenseTotal += parseFloat(ExpensesInput.value)
-console.log("expense total = "+expenseTotal)
-updateRemainingBalance(); // Update the balance after modifying expenses - Jimmy
+    const expensesValue = parseFloat(expensesInput.value); // Parse input value to a float -yasmine 
 
-})
+    if (!isNaN(expensesValue) && expensesValue >= 0) {
+        expenseTotal += expensesValue; // Add the expense to the total -yasmine 
+        expensesOutput.textContent = `Total Expenses: $${expenseTotal.toFixed(2)}`; // Update the expenses output -yasmine 
+        expensesInput.value = ""; // Clear the input field after submission -yasmine 
+    } else {
+        alert("Please enter a valid positive number for expenses."); // Input validation -yasmine 
+    }
 
-//DISPLAY
-// Update the remaining balance whenever earnings or expenses change. id="remaining-balance" in the HTML - Jimmy
+    updateRemainingBalance(); // Update the balance after modifying expenses - Jimmy
+});
+
+// DISPLAY:
+// Update the remaining balance whenever earnings or expenses change - Jimmy
 function updateRemainingBalance() {
-    const remainingBalance = incomeTotal - expenseTotal;
-    remainingBalanceElement.textContent = `Remaining Balance: $${remainingBalance.toFixed(2)}`;
+    const remainingBalance = incomeTotal - expenseTotal; // Calculate remaining balance -yasmine
+    remainingBalanceElement.textContent = `Remaining Balance: $${remainingBalance.toFixed(2)}`; // Update display -yasmine 
     console.log("Remaining Balance = $" + remainingBalance.toFixed(2)); // Log the remaining balance - Jimmy
 }
+
+// MODAL:
+// Open the modal and display the summary -yasmine
+openModalButton.addEventListener("click", function () {
+    modalEarnings.textContent = `Total Earnings: $${incomeTotal.toFixed(2)}`;
+    modalExpenses.textContent = `Total Expenses: $${expenseTotal.toFixed(2)}`;
+    modalBalance.textContent = `Remaining Balance: $${(incomeTotal - expenseTotal).toFixed(2)}`;
+    modal.style.display = "block";
+});
+
+// Close the modal when the close button is clicked -yasmine
+closeModalButton.addEventListener("click", function () {
+    modal.style.display = "none";
+});
+
+// Close the modal when clicking outside the modal content -yasmine
+window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
