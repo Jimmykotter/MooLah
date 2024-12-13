@@ -45,7 +45,8 @@ body {
 }
 
 .image-item {
-    margin-right: 20px; /* Space between image and form */
+    margin-right: 20px;
+    /* Space between image and form */
 }
 
 .image-item img {
@@ -60,14 +61,17 @@ body {
     color: #444;
 }
 
-.earnings-entry, .expense-entry {
-    flex-grow: 1; /* Allow the form to take up remaining space */
+.earnings-entry,
+.expense-entry {
+    flex-grow: 1;
+    /* Allow the form to take up remaining space */
 }
 
 /* Section Styling */
 section {
     display: flex;
-    align-items: center; /* Align items vertically in the center */
+    align-items: center;
+    /* Align items vertically in the center */
     margin: 20px auto;
     padding: 20px;
     max-width: 600px;
@@ -116,14 +120,18 @@ output {
     margin-top: 10px;
     font-weight: bold;
 }
+
 #remaining-balance {
     background-color: #6dd471;
     color: red;
-    font-size: 24px; /* Corrected "px" spacing */
+    font-size: 24px;
+    /* Corrected "px" spacing */
     font-weight: bold;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    margin: 20px auto; /* Centers the element horizontally */
-    width: fit-content; /* Ensures the box width adjusts to content */
+    margin: 20px auto;
+    /* Centers the element horizontally */
+    width: fit-content;
+    /* Ensures the box width adjusts to content */
 }
