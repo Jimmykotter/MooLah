@@ -45,7 +45,7 @@ body {
 }
 
 .image-item {
-    text-align: center;
+ margin-right: 20 px; /* Space between image and form */
 }
 
 .image-item img {
@@ -53,7 +53,6 @@ body {
     height: 100 px;
     border-radius: 10 px;
     border: 2 px solid #ddd;
-    margin-bottom: 10 px;
 }
 
 .image-item p {
@@ -61,17 +60,20 @@ body {
     color: #666;
 }
 
+.earnings-entry, .expense-entry {
+    flex-grow: 1; /* Allow the form to take up remaining space */
+}
 /* Section Styling */
 section {
-    margin: 20 px 0;
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    margin: 20 px auto;
     padding: 20 px;
+    max-width: 600 px;
     background: #fff;
     border: 1 px solid #ddd;
     border-radius: 8 px;
-    box-shadow: 0 2 px 5 px rgba(0, 0, 0, 0.1);
-    max-width: 500 px;
-    margin-left: auto;
-    margin-right: auto;
+    box-shadow: 0 2 px 4 px rgba(0, 0, 0, 0.1);
 }
 
 /* Form Elements */
@@ -84,11 +86,12 @@ label {
 
 
 input[type="text"] {
-    width: calc (100% - 100px);
+    width: calc (100% - 110px);
     padding: 8 px;
     margin: 10 px 0;
     border: 1 px solid #ccc;
     border-radius: 5 px;
+    font-size: 16 px;
 }
 
 button {
@@ -112,3 +115,15 @@ output {
     margin-top: 10 px;
     font-weight: bold;
 }
+#remaining-balance {
+    background-color: #6dd471;
+    color: red;
+    font-size: 24px; /* Corrected "px" spacing */
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 20px auto; /* Centers the element horizontally */
+    width: fit-content; /* Ensures the box width adjusts to content */
+}
+
