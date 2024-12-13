@@ -1,56 +1,81 @@
-const earningsInput = document.querySelector("#earnings"); //input of earning value
-const earningsButton = document.querySelector("#earnings-button"); //the button that is clicked
-const earningsOutput =  document.querySelector("earnings-output"); //output for total earnings
-let incomeTotal = 0
+// elements for earnings
+const earningsInput = document.querySelector("#earnings");
+const earningsButton = document.querySelector("#earnings-button");
+const earningsOutput = document.querySelector("#earnings-output");
+let incomeTotal = 0;
 
-const ExpensesInput = document.querySelector("#expenses") //input of expenses value
-const expensesButton = document.querySelector ("#expenses-button") //the button that is clicked 
-const expensesOutput = document.querySelector("#expenses-output"); //output for total expenses
-let expenseTotal = 0
+// elements for expenses
+const expensesInput = document.querySelector("#expenses");
+const expensesButton = document.querySelector("#expenses-button");
+const expensesOutput = document.querySelector("#expenses-output");
+let expenseTotal = 0;
 
-const remainingBalanceElement = document.querySelector("#remaining-balance"); // Element to display the remaining balance
- 
-//EARNINGS:
+// element for displaying the remaining balance
+const remainingBalanceElement = document.querySelector("#remaining-balance");
 
-//need to add an event listener for when the earning button is clicked
+// modal elements
+const modal = document.querySelector("#modal");
+const openModalButton = document.querySelector("#open-modal-button");
+const closeModalButton = document.querySelector("#close-modal-button");
+const modalEarnings = document.querySelector("#modal-earnings");
+const modalExpenses = document.querySelector("#modal-expenses");
+const modalBalance = document.querySelector("#modal-balance");
+
+// Event listener for earnings submission
 earningsButton.addEventListener("click", function (event) {
     event.preventDefault();
     const earningsValue = parseFloat(earningsInput.value);
-    if (!isNaN(earningsValue)) {
+
+    if (!isNaN(earningsValue) && earningsValue >= 0) {
         incomeTotal += earningsValue;
-        earningsOutput.value = `Total Earnings: $${incomeTotal.toFixed(2)}`; // Updates the output 
-        earningsInput.value = ""; // Clear input field
+        earningsOutput.textContent = `Total Earnings: $${incomeTotal.toFixed(2)}`;
+        earningsInput.value = "";
     } else {
-        alert("Please enter a valid number for earnings."); // just incase 
+        alert("Please enter a valid positive number for earnings.");
     }
-console.log("income total = "+incomeTotal)
-updateRemainingBalance(); // Update the balance after modifying income
 
-})
+    updateRemainingBalance();
+});
 
-//EXPENSE:
-
-//need to add an event listener and consol log for when the expense button is clicked
-expensesButton.addEventListener("click", function (event){
+// Event listener for expenses submission
+expensesButton.addEventListener("click", function (event) {
     event.preventDefault();
-    const expensesValue = parseFloat(ExpensesInput.value);
-    if (!isNaN(expensesValue)) {
-        expenseTotal += expensesValue
-        expensesOutput.value = `Total Expenses: $${expenseTotal.toFixed(2)}`; //updates the output
-        expensesInput.value = ""; // clears input field
+    const expensesValue = parseFloat(expensesInput.value);
+
+    if (!isNaN(expensesValue) && expensesValue >= 0) {
+        expenseTotal += expensesValue;
+        expensesOutput.textContent = `Total Expenses: $${expenseTotal.toFixed(2)}`;
+        expensesInput.value = "";
     } else {
-        alert("Please enter a valid number for expenses."); 
+        alert("Please enter a valid positive number for expenses.");
     }
-    
-console.log("expense total = "+expenseTotal)
-updateRemainingBalance(); // Update the balance after modifying expenses
 
-})
+    updateRemainingBalance();
+});
 
-//DISPLAY
-// Update the remaining balance whenever earnings or expenses change. id="remaining-balance" in the HTML
+// Function to update the remaining balance
 function updateRemainingBalance() {
     const remainingBalance = incomeTotal - expenseTotal;
     remainingBalanceElement.textContent = `Remaining Balance: $${remainingBalance.toFixed(2)}`;
-    console.log("Remaining Balance = $" + remainingBalance.toFixed(2)); // Log the remaining balance
 }
+
+// Open the modal and display the summary
+openModalButton.addEventListener("click", function () {
+    modalEarnings.textContent = `Total Earnings: $${incomeTotal.toFixed(2)}`;
+    modalExpenses.textContent = `Total Expenses: $${expenseTotal.toFixed(2)}`;
+    modalBalance.textContent = `Remaining Balance: $${(incomeTotal - expenseTotal).toFixed(2)}`;
+    modal.style.display = "block";
+});
+
+//Close the modal when the close button is clicked
+closeModalButton.addEventListener("click", function () {
+    modal.style.display = "none";
+});
+
+// Close the modal when clicking outside the modal content
+window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
