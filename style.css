@@ -4,7 +4,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+:root {
+    --font-family: 'Arial', sans-serif;
+    --primary-color: #4CAF50;
+    --secondary-color: #666;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --highlight-color: #6dd471;
+    --border-color: #ddd;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --transition: 0.3s ease;
+}
 /* Body Styling */
 body {
     font-family: 'Arial', sans-serif;
