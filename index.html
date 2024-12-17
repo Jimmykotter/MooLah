@@ -5,82 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MooLah</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-
 </head>
 
 <body>
     <h1 class="header">MooLah</h1>
     <h2 class="subtitle">Monthly Budget Calculator</h2>
 
-    <!-- Created and added Moolah Logo -->
-    <img class="logo" src="./assets/images/MooLah.jpg" alt="MooLah Logo" width="200" height="200"> <!--this is case sensitive in github-->
+    <!-- MooLah Logo -->
+    <img class="logo" src="./assets/images/MooLah.jpg" alt="MooLah Logo" width="200" height="200">
     <br>
 
-    <!-- Created and add piggybank and input/output for Earnings -->
-   <div class="main-container">
+    <div class="main-container row">
         
-    <div class="col s12 m2">
-        <section class="z-depth-5">  
+        <!-- Earnings Section -->
+        <div class="col s12 m6">
+            <section class="z-depth-5">  
                 <div class="image-item">
                     <img src="./assets/images/piggybank.jpg" alt="Earnings Image">
                 </div>
                 <div class="earnings-entry">
                     <label for="earnings">Enter Your Earnings:</label>
                     <input type="text" id="earnings" name="earnings" placeholder="Enter amount">
-                    <button id="earnings-button">Submit</button>
+                    <button id="earnings-button" class="btn waves-effect waves-light">Submit</button>
                     <br>
-                    <output type="text" id="earnings-output" name="earnings-output" placeholder="Enter amount"></output>
-                </div>
-            </section>
-
-    <!--Created and added Gold Coin image and input/output for Expenses -->
-    <div class="col s12 m2">
-        <section class="z-depth-5">      
-
-                <div class="image-item">
-                    <img src="./assets/images/Gold-Coin.jpg" alt="Expenses Image">
-                </div>
-                <div class="expense-entry">
-                    <label for="expense">Enter Your Expenses:</label>
-                    <input type="text" id="expenses" name="expenses" placeholder="Enter amount">
-                    <button id="expenses-button">Submit</button>
-                    <br>
-                    <output type="text" id="expenses-output" name="expense-output" placeholder="Enter amount"></output>
+                    <output id="earnings-output">Total Earnings: $0.00</output>
                 </div>
             </section>
         </div>
 
-</div>
-    
-    <!-- Added section for Remaining Balance-->
-<p id="remaining-balance">Remaining Balance: $0</p>
+        <!-- Expenses Section -->
+        <div class="col s12 m6">
+            <section class="z-depth-5">      
+                <div class="image-item">
+                    <img src="./assets/images/Gold-Coin.jpg" alt="Expenses Image">
+                </div>
+                <div class="expense-entry">
+                    <label for="expenses">Enter Your Expenses:</label>
+                    <input type="text" id="expenses" name="expenses" placeholder="Enter amount">
+                    <button id="expenses-button" class="btn waves-effect waves-light">Submit</button>
+                    <br>
+                    <output id="expenses-output">Total Expenses: $0.00</output>
+                </div>
+            </section>
+        </div>
 
-    <br>
-    <br>
-    <br>
+    </div>
 
-    <!-- Added Footer -->
+    <!-- Remaining Balance Section -->
+    <p id="remaining-balance" class="z-depth-2">Remaining Balance: $0.00</p>
 
+    <br><br><br>
+
+    <!-- Button to Open the Transaction History Modal -->
+    <button id="open-history-button" class="btn waves-effect waves-light">View Transaction History</button>
+
+    <!-- Transaction History Modal -->
+    <div id="history-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-history-button" class="close">&times;</span>
+            <h2>Transaction History</h2>
+            <ul id="transaction-list"></ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer id="footer">
         <p>&copy; 2024 MooLah</p>
     </footer>
 
-    <script src="./assets/js/script.js"> </script> <!-- Link to script.js - Jimmy -->
-
-    <!-- Button to Open the Transaction History Modal -yasmine -->
-<button id="open-history-button">View Transaction History</button>
-
-<!-- Transaction History Modal -yasmine -->
-<div id="history-modal" class="modal">
-  <div class="modal-content">
-    <span id="close-history-button" class="close">&times;</span>
-    <h2>Transaction History</h2>
-    <ul id="transaction-list"></ul>
-  </div>
-</div>
-
+    <!-- JavaScript Links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/script.js"></script> <!-- Link to script.js - Jimmy -->
 </body>
+
 </html>
+
 
