@@ -30,7 +30,7 @@ function addTransaction(type, amount) {
 // Event listener for earnings submission - Jimmy
 earningsButton.addEventListener("click", function (event) {
     event.preventDefault(); // Stop the page from refreshing - Jimmy
-    const earningsValue = parseFloat(earningsInput.value); // Parse input value to a float - Yasmine
+    const earningsValue = parseFloat(earningsInput.value.trim()); // Trim to remove whitespace - Yasmine
 
     if (!isNaN(earningsValue) && earningsValue >= 0) {
         incomeTotal += earningsValue; // Add the earnings to the total - Yasmine
@@ -47,7 +47,7 @@ earningsButton.addEventListener("click", function (event) {
 // Event listener for expenses submission - Jimmy
 expensesButton.addEventListener("click", function (event) {
     event.preventDefault(); // Stop the page from refreshing - Jimmy
-    const expensesValue = parseFloat(expensesInput.value); // Parse input value to a float - Yasmine
+    const expensesValue = parseFloat(expensesInput.value.trim()); // Trim to remove whitespace - Yasmine
 
     if (!isNaN(expensesValue) && expensesValue >= 0) {
         expenseTotal += expensesValue; // Add the expense to the total - Yasmine
@@ -100,6 +100,14 @@ window.addEventListener("click", function (event) {
         historyModal.style.display = "none"; // Hide the modal - Yasmine
     }
 });
+
+// Close the modal when the 'Escape' key is pressed - Yasmine
+window.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        historyModal.style.display = "none";
+    }
+});
+
 
 
 
