@@ -126,7 +126,7 @@ output {
     margin: 20px auto; 
     width: fit-content; /
 }
-/* Modal Background */
+/* Modal Background */ - yasmine 
 .modal {
     display: none;
     position: fixed;
@@ -139,7 +139,7 @@ output {
     background-color: rgba(0, 0, 0, 0.5);
   }
   
-  /* Modal Content */
+  /* Modal Content */ - yasmine 
   .modal-content {
     background-color: #fff;
     margin: 15% auto;
@@ -166,7 +166,7 @@ output {
     text-decoration: none;
   }
   
-  /* Transaction List */
+  /* Transaction List */ - yasmine 
   #transaction-list {
     list-style-type: none;
     padding: 0;
@@ -178,6 +178,63 @@ output {
   #transaction-list li {
     padding: 10px;
     border-bottom: 1px solid #ddd;
+  }
+/* Modal Background */ - yasmine
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Modal Content */ -yasmine 
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  /* Close Button */ - yasmine
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+  }
+  
+  /* Transaction List */ - yasmine
+  #transaction-list {
+    list-style-type: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    text-align: left;
+  }
+  
+  #transaction-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #transaction-list li:last-child {
+    border-bottom: none;
   }
   
   #transaction-list li:last-child {
