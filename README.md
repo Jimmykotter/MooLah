@@ -57,9 +57,8 @@ https://jimmykotter.github.io/MooLah/
 
 ## SCREENSHOT
 <br>
-<img src = "./assets/images/Moolah Screenshot.jpg" alt="MooLah Logo" width="750" height="750">
+<img src = "./assets/images/Moolah Screenshot.jpg" alt="MooLah screenshot" width="750" height="750">
 
 ## Credits
 
 N/A
-
