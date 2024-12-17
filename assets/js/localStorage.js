@@ -1,5 +1,5 @@
 const earningsInput = document.querySelector("#earnings");
-const earningsButton = document.querySelector("#earnings-button"); 
+const earningsButton = document.querySelector("#earnings-button");
 const expensesInput = document.querySelector("#expenses");
 const expensesButton = document.querySelector("#expenses-button");
 
@@ -30,7 +30,7 @@ function isValidNumber(value) {
     return !isNaN(value) && value.trim() !== '';
 }
 
-earningsButton.addEventListener("click", function(event) {
+earningsButton.addEventListener("click", function (event) {
     event.preventDefault();
     const earningsValue = earningsInput.value;
     if (isValidNumber(earningsValue)) {
@@ -42,7 +42,7 @@ earningsButton.addEventListener("click", function(event) {
     }
 });
 
-expensesButton.addEventListener("click", function(event) {
+expensesButton.addEventListener("click", function (event) {
     event.preventDefault();
     if (expenseCount >= maxExpenses) {
         console.log("Maximum number of expense entries reached");

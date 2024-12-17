@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MooLah</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./style.css">
+
 </head>
+
 <body>
     <h1 class="header">MooLah</h1>
     <h2 class="subtitle">Monthly Budget Calculator</h2>
 
-<!-- Created and added Moolah Logo -->
-    <img class="logo" src="./assets/Moolah.jpg" alt="MooLah Logo" width="200" height="200">
+    <!-- Created and added Moolah Logo -->
+    <img class="logo" src="./assets/images/MooLah.jpg" alt="MooLah Logo" width="200" height="200"> <!--this is case sensitive in github-->
     <br>
-    
+
     <!-- Created and add piggybank and input/output for Earnings -->
    <div class="main-container">
         
     <div class="col s12 m2">
         <section class="z-depth-5">  
                 <div class="image-item">
-                    <img src="./assets/piggybank.jpg" alt="Earnings Image">
+                    <img src="./assets/images/piggybank.jpg" alt="Earnings Image">
                 </div>
                 <div class="earnings-entry">
                     <label for="earnings">Enter Your Earnings:</label>
@@ -31,12 +34,13 @@
                     <output type="text" id="earnings-output" name="earnings-output" placeholder="Enter amount"></output>
                 </div>
             </section>
-            
+
     <!--Created and added Gold Coin image and input/output for Expenses -->
     <div class="col s12 m2">
         <section class="z-depth-5">      
+
                 <div class="image-item">
-                    <img src="./assets/Gold-Coin.jpg" alt="Expenses Image">
+                    <img src="./assets/images/Gold-Coin.jpg" alt="Expenses Image">
                 </div>
                 <div class="expense-entry">
                     <label for="expense">Enter Your Expenses:</label>
@@ -47,10 +51,12 @@
                 </div>
             </section>
         </div>
+
 </div>
     
     <!-- Added section for Remaining Balance-->
 <p id="remaining-balance">Remaining Balance: $0</p>
+
     <br>
     <br>
     <br>
@@ -61,8 +67,7 @@
         <p>&copy; 2024 MooLah</p>
     </footer>
 
-<script src="script.js"></script>
-
-
+    <script src="./assets/js/script.js"> </script> <!-- Link to script.js - Jimmy -->
 </body>
 </html>
+

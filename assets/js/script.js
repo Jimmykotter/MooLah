@@ -2,13 +2,13 @@
 const earningsInput = document.querySelector("#earnings"); // Input field for earnings value - Jimmy
 const earningsButton = document.querySelector("#earnings-button"); // Button to submit earnings - Jimmy
 const earningsOutput = document.querySelector("#earnings-output"); // Output for total earnings -yasmine  
-let incomeTotal = 0; // Variable to store the total earnings -yasmine
+let incomeTotal = 0; // Variable to store the total earnings -Jimmy 
 
 // Select elements for expenses - Jimmy
 const expensesInput = document.querySelector("#expenses"); // Input field for expenses value - Jimmy
 const expensesButton = document.querySelector("#expenses-button"); // Button to submit expenses - Jimmy
 const expensesOutput = document.querySelector("#expenses-output"); // Output for total expenses - yasmine
-let expenseTotal = 0; // Variable to store the total expenses -yasmine
+let expenseTotal = 0; // Variable to store the total expenses -Jimmy
 
 // Select element for displaying the remaining balance - Jimmy
 const remainingBalanceElement = document.querySelector("#remaining-balance"); // Element to display the remaining balance - Jimmy
@@ -22,9 +22,9 @@ const modalExpenses = document.querySelector("#modal-expenses"); // Modal displa
 const modalBalance = document.querySelector("#modal-balance"); // Modal display for remaining balance -yasmine
 
 // EARNINGS:
-// Add an event listener for when the earnings button is clicked - Jimmy
-earningsButton.addEventListener("click", function (event) {
-    event.preventDefault();
+
+earningsButton.addEventListener("click", function (event) {// event listener for when the "submit" earnings button is clicked - Jimmy
+    event.preventDefault(); //stop the page from refreshing after submitting - Jimmy
     const earningsValue = parseFloat(earningsInput.value); // Parse input value to a float -yasmine
 
     if (!isNaN(earningsValue) && earningsValue >= 0) {
@@ -39,9 +39,10 @@ earningsButton.addEventListener("click", function (event) {
 });
 
 // EXPENSES:
-// Add an event listener for when the expenses button is clicked - Jimmy
-expensesButton.addEventListener("click", function (event) {
-    event.preventDefault();
+
+expensesButton.addEventListener("click", function (event) { //event listener for when the expenses button is clicked - Jimmy
+    event.preventDefault(); //stop the page from refreshing after submitting - Jimmy
+
     const expensesValue = parseFloat(expensesInput.value); // Parse input value to a float -yasmine 
 
     if (!isNaN(expensesValue) && expensesValue >= 0) {
@@ -56,10 +57,10 @@ expensesButton.addEventListener("click", function (event) {
 });
 
 // DISPLAY:
-// Update the remaining balance whenever earnings or expenses change - Jimmy
-function updateRemainingBalance() {
-    const remainingBalance = incomeTotal - expenseTotal; // Calculate remaining balance -yasmine
-    remainingBalanceElement.textContent = `Remaining Balance: $${remainingBalance.toFixed(2)}`; // Update display -yasmine 
+
+function updateRemainingBalance() { // Update the remaining balance whenever earnings or expenses change - Jimmy
+    const remainingBalance = incomeTotal - expenseTotal; // Calculate remaining balance -Jimmy
+    remainingBalanceElement.textContent = `Remaining Balance: $${remainingBalance.toFixed(2)}`; // Update display -Jimmy 
     console.log("Remaining Balance = $" + remainingBalance.toFixed(2)); // Log the remaining balance - Jimmy
 }
 
