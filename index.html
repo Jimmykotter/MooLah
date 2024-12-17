@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MooLah</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style.css">
+
 </head>
 
 <body>
@@ -16,13 +18,11 @@
     <img class="logo" src="./assets/images/MooLah.jpg" alt="MooLah Logo" width="200" height="200"> <!--this is case sensitive in github-->
     <br>
 
-    <div class="main-container">
-
-        <!-- Created and add piggybank and input/output for Earnings -->
-
-
-        <div class="sections-container">
-            <section class="earnings">
+    <!-- Created and add piggybank and input/output for Earnings -->
+   <div class="main-container">
+        
+    <div class="col s12 m2">
+        <section class="z-depth-5">  
                 <div class="image-item">
                     <img src="./assets/images/piggybank.jpg" alt="Earnings Image">
                 </div>
@@ -35,9 +35,10 @@
                 </div>
             </section>
 
-            <!--Created and added Gold Coin image and input/output for Expenses -->
+    <!--Created and added Gold Coin image and input/output for Expenses -->
+    <div class="col s12 m2">
+        <section class="z-depth-5">      
 
-            <section class="expenses">
                 <div class="image-item">
                     <img src="./assets/images/Gold-Coin.jpg" alt="Expenses Image">
                 </div>
@@ -50,24 +51,23 @@
                 </div>
             </section>
         </div>
-    </div>
 
+</div>
+    
     <!-- Added section for Remaining Balance-->
+<p id="remaining-balance">Remaining Balance: $0</p>
 
-    <p id="remaining-balance">Remaining Balance: $0</p>
     <br>
     <br>
     <br>
 
     <!-- Added Footer -->
 
-
     <footer id="footer">
         <p>&copy; 2024 MooLah</p>
     </footer>
 
     <script src="./assets/js/script.js"> </script> <!-- Link to script.js - Jimmy -->
-
 </body>
-
 </html>
+
