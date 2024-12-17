@@ -1,86 +1,105 @@
 // Select elements for earnings - Jimmy
 const earningsInput = document.querySelector("#earnings"); // Input field for earnings value - Jimmy
 const earningsButton = document.querySelector("#earnings-button"); // Button to submit earnings - Jimmy
-const earningsOutput = document.querySelector("#earnings-output"); // Output for total earnings -yasmine  
-let incomeTotal = 0; // Variable to store the total earnings -Jimmy 
+const earningsOutput = document.querySelector("#earnings-output"); // Output for total earnings - Yasmine
+let incomeTotal = 0; // Variable to store the total earnings - Jimmy
 
 // Select elements for expenses - Jimmy
 const expensesInput = document.querySelector("#expenses"); // Input field for expenses value - Jimmy
 const expensesButton = document.querySelector("#expenses-button"); // Button to submit expenses - Jimmy
-const expensesOutput = document.querySelector("#expenses-output"); // Output for total expenses - yasmine
-let expenseTotal = 0; // Variable to store the total expenses -Jimmy
+const expensesOutput = document.querySelector("#expenses-output"); // Output for total expenses - Yasmine
+let expenseTotal = 0; // Variable to store the total expenses - Jimmy
 
 // Select element for displaying the remaining balance - Jimmy
 const remainingBalanceElement = document.querySelector("#remaining-balance"); // Element to display the remaining balance - Jimmy
 
-// Modal elements
-const modal = document.querySelector("#modal"); // Modal container - yasmine 
-const openModalButton = document.querySelector("#open-modal-button"); // Button to open the modal -yasmine
-const closeModalButton = document.querySelector("#close-modal-button"); // Button to close the modal -yasmine
-const modalEarnings = document.querySelector("#modal-earnings"); // Modal display for earnings -yasmine 
-const modalExpenses = document.querySelector("#modal-expenses"); // Modal display for expenses -yasmine
-const modalBalance = document.querySelector("#modal-balance"); // Modal display for remaining balance -yasmine
+// Modal elements for transaction history - Yasmine
+const historyModal = document.querySelector("#history-modal");
+const openHistoryButton = document.querySelector("#open-history-button");
+const closeHistoryButton = document.querySelector("#close-history-button");
+const transactionList = document.querySelector("#transaction-list");
 
-// EARNINGS:
+// Array to store transactions - Yasmine
+let transactions = [];
 
-earningsButton.addEventListener("click", function (event) {// event listener for when the "submit" earnings button is clicked - Jimmy
-    event.preventDefault(); //stop the page from refreshing after submitting - Jimmy
-    const earningsValue = parseFloat(earningsInput.value); // Parse input value to a float -yasmine
+// Function to add a transaction to the history - Yasmine
+function addTransaction(type, amount) {
+    transactions.push({ type, amount });
+}
+
+// Event listener for earnings submission - Jimmy
+earningsButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Stop the page from refreshing - Jimmy
+    const earningsValue = parseFloat(earningsInput.value); // Parse input value to a float - Yasmine
 
     if (!isNaN(earningsValue) && earningsValue >= 0) {
-        incomeTotal += earningsValue; // Add the earnings to the total -yasmine
-        earningsOutput.textContent = `Total Earnings: $${incomeTotal.toFixed(2)}`; // Update the earnings output -yasmine
-        earningsInput.value = ""; // Clear the input field after submission -yasmine 
+        incomeTotal += earningsValue; // Add the earnings to the total - Yasmine
+        earningsOutput.textContent = `Total Earnings: $${incomeTotal.toFixed(2)}`; // Update the earnings output - Yasmine
+        addTransaction("Earnings", earningsValue); // Add transaction to history - Yasmine
+        earningsInput.value = ""; // Clear the input field - Yasmine
     } else {
-        alert("Please enter a valid positive number for earnings."); // Input validation -yasmine
+        alert("Please enter a valid positive number for earnings."); // Input validation - Yasmine
     }
 
-    updateRemainingBalance(); // Update the balance after modifying income - Jimmy
+    updateRemainingBalance(); // Update the balance - Jimmy
 });
 
-// EXPENSES:
-
-expensesButton.addEventListener("click", function (event) { //event listener for when the expenses button is clicked - Jimmy
-    event.preventDefault(); //stop the page from refreshing after submitting - Jimmy
-
-    const expensesValue = parseFloat(expensesInput.value); // Parse input value to a float -yasmine 
+// Event listener for expenses submission - Jimmy
+expensesButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Stop the page from refreshing - Jimmy
+    const expensesValue = parseFloat(expensesInput.value); // Parse input value to a float - Yasmine
 
     if (!isNaN(expensesValue) && expensesValue >= 0) {
-        expenseTotal += expensesValue; // Add the expense to the total -yasmine 
-        expensesOutput.textContent = `Total Expenses: $${expenseTotal.toFixed(2)}`; // Update the expenses output -yasmine 
-        expensesInput.value = ""; // Clear the input field after submission -yasmine 
+        expenseTotal += expensesValue; // Add the expense to the total - Yasmine
+        expensesOutput.textContent = `Total Expenses: $${expenseTotal.toFixed(2)}`; // Update the expenses output - Yasmine
+        addTransaction("Expenses", expensesValue); // Add transaction to history - Yasmine
+        expensesInput.value = ""; // Clear the input field - Yasmine
     } else {
-        alert("Please enter a valid positive number for expenses."); // Input validation -yasmine 
+        alert("Please enter a valid positive number for expenses."); // Input validation - Yasmine
     }
 
-    updateRemainingBalance(); // Update the balance after modifying expenses - Jimmy
+    updateRemainingBalance(); // Update the balance - Jimmy
 });
 
-// DISPLAY:
-
-function updateRemainingBalance() { // Update the remaining balance whenever earnings or expenses change - Jimmy
-    const remainingBalance = incomeTotal - expenseTotal; // Calculate remaining balance -Jimmy
-    remainingBalanceElement.textContent = `Remaining Balance: $${remainingBalance.toFixed(2)}`; // Update display -Jimmy 
+// Function to update the remaining balance - Jimmy
+function updateRemainingBalance() {
+    const remainingBalance = incomeTotal - expenseTotal; // Calculate remaining balance - Jimmy
+    remainingBalanceElement.textContent = `Remaining Balance: $${remainingBalance.toFixed(2)}`; // Update display - Jimmy
     console.log("Remaining Balance = $" + remainingBalance.toFixed(2)); // Log the remaining balance - Jimmy
 }
 
-// MODAL:
-// Open the modal and display the summary -yasmine
-openModalButton.addEventListener("click", function () {
-    modalEarnings.textContent = `Total Earnings: $${incomeTotal.toFixed(2)}`;
-    modalExpenses.textContent = `Total Expenses: $${expenseTotal.toFixed(2)}`;
-    modalBalance.textContent = `Remaining Balance: $${(incomeTotal - expenseTotal).toFixed(2)}`;
-    modal.style.display = "block";
+// Function to render transaction history - Yasmine
+function renderTransactionHistory() {
+    transactionList.innerHTML = ""; // Clear the list before re-rendering - Yasmine
+
+    if (transactions.length === 0) {
+        transactionList.innerHTML = "<li>No transactions recorded yet.</li>"; // Display message if no transactions - Yasmine
+    } else {
+        transactions.forEach((transaction, index) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${index + 1}. ${transaction.type}: $${transaction.amount.toFixed(2)}`; // Format transaction - Yasmine
+            transactionList.appendChild(listItem); // Append transaction to the list - Yasmine
+        });
+    }
+}
+
+// Open the transaction history modal - Yasmine
+openHistoryButton.addEventListener("click", function () {
+    renderTransactionHistory(); // Render the transaction history - Yasmine
+    historyModal.style.display = "block"; // Display the modal - Yasmine
 });
 
-// Close the modal when the close button is clicked -yasmine
-closeModalButton.addEventListener("click", function () {
-    modal.style.display = "none";
+// Close the transaction history modal when the close button is clicked - Yasmine
+closeHistoryButton.addEventListener("click", function () {
+    historyModal.style.display = "none"; // Hide the modal - Yasmine
 });
 
-// Close the modal when clicking outside the modal content -yasmine
+// Close the modal when clicking outside the modal content - Yasmine
 window.addEventListener("click", function (event) {
-    if (event.target === modal) {
-        modal.style.display = "none";
+    if (event.target === historyModal) {
+        historyModal.style.display = "none"; // Hide the modal - Yasmine
     }
 });
+
+
+
